@@ -14,7 +14,7 @@
 #+LaTeX_HEADER: \hypersetup{urlcolor=blue}
 #+LaTex_HEADER: \usepackage{titlesec}
 #+LaTex_HEADER: \setcounter{secnumdepth}{4}
-#+LaTeX_HEADER: \usepackage{minted}
+#+LaTeX_HEADER: \usepackage{minted} 
 #+LATEX_HEADER: \setminted{frame=single,framesep=10pt}
 #+LaTeX_HEADER: \chead{}
 #+LaTeX_HEADER: \rhead{\today}
@@ -216,3 +216,16 @@
 * 3D Capture Setups 
 
 * Background Subtraction/Motion Segmentation
+
+
+* VR/AR
+- Virtual/Augmented Reality is fundamentally dependant on Computer Vision
+** Motion tracking 
+- For example we require motion tracking for where the user is
+- Where the objects are
+- Where the user is looking (head tracking)
+- Without these, or if done badly or out of sync
+*** Motion sickness 
+- B. Allen et al. Visual 3D acuity predicts discomfort in 3D stereoscopic environments. Entertainment Computing.
+- Reports that 78% of women and 33% of men felt ill from using the HTC Vive
+- Can stem from a discontinuity between motion being made and one being shown
