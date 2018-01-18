@@ -155,7 +155,7 @@
   - As will a partially separated cow...
 - Adds a lot of robustness
 - Has a reasonable accuracy of about 80% on PASCAL VOC
-
+  
 * Motion Detection
 - For detecting motion we have two options:
   1. Find the things which aren't moving and ignore them (Background Subtraction)
@@ -212,7 +212,11 @@
 - So pixels with a lot of noise have a higher threshold 
 
 ** Optical Flow
-
+*** Apparent motion
+- Homogeneous spheres rotating seems static
+- Static homogeneous sphere with moving light source seems to rotate
+[[./app.png]]
+- Is not a problem just for optical flow, it is also a problem for brains
 
 * Video Stabilisation
 - Can use a one point track 
@@ -256,8 +260,22 @@
   - Being able to do this without a known static background is the "next" step for video production
 
 * Structure from Motion
-** TODO Hyperlapse Videos
+- Often used with drones
+- Can be done with a single moving camera
+- Uses a salient point in the images, find them in other images from different positions
+- Related to stitching
+  - But different as you want to move the camera
 
+
+**  Hyperlapse Videos
+- Is a product of microsoft research
+- Video stabilisation cannot be sped up because of wildy shaking
+- Stabilising and then speeding up a video doesn't work either as the stable window is small
+*** How it works
+1. Reconstruction of 3D space using structure from motion
+2. Finding a 6D camera path through the world
+3. Rendering
+   - Compared to naive methods, they use multiple frames to produce each output frame
 
 * Spatial Reasoning
 

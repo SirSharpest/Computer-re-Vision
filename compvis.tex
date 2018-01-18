@@ -1,4 +1,4 @@
-% Created 2018-01-18 Thu 13:31
+% Created 2018-01-18 Thu 17:23
 \documentclass[a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -352,7 +352,16 @@
 
 \subsection{Optical Flow}
 \label{sec-4-2}
-
+\subsubsection{Apparent motion}
+\label{sec-4-2-1}
+\begin{itemize}
+\item Homogeneous spheres rotating seems static
+\item Static homogeneous sphere with moving light source seems to rotate
+\end{itemize}
+\includegraphics[width=.9\linewidth]{./app.png}
+\begin{itemize}
+\item Is not a problem just for optical flow, it is also a problem for brains
+\end{itemize}
 
 \section{Video Stabilisation}
 \label{sec-5}
@@ -431,9 +440,34 @@
 
 \section{Structure from Motion}
 \label{sec-9}
-\subsection{{\bfseries\sffamily TODO} Hyperlapse Videos}
-\label{sec-9-1}
+\begin{itemize}
+\item Often used with drones
+\item Can be done with a single moving camera
+\item Uses a salient point in the images, find them in other images from different positions
+\item Related to stitching
+\begin{itemize}
+\item But different as you want to move the camera
+\end{itemize}
+\end{itemize}
 
+
+\subsection{Hyperlapse Videos}
+\label{sec-9-1}
+\begin{itemize}
+\item Is a product of microsoft research
+\item Video stabilisation cannot be sped up because of wildy shaking
+\item Stabilising and then speeding up a video doesn't work either as the stable window is small
+\end{itemize}
+\subsubsection{How it works}
+\label{sec-9-1-1}
+\begin{enumerate}
+\item Reconstruction of 3D space using structure from motion
+\item Finding a 6D camera path through the world
+\item Rendering
+\begin{itemize}
+\item Compared to naive methods, they use multiple frames to produce each output frame
+\end{itemize}
+\end{enumerate}
 
 \section{Spatial Reasoning}
 \label{sec-10}
