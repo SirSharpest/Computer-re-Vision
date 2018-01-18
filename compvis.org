@@ -213,6 +213,20 @@
 
 ** Optical Flow
 
+
+* Video Stabilisation
+- Can use a one point track 
+  - Uses a single point of reference
+- Two point track
+  - Selecting two points and adding a line between the two and aiming to keep the line straight
+
+** If the video is moving a lot 
+- Older technique called Deshaker, processing pass
+  - Selects items with are moving a lot and which is moving less
+  - Using this information it can try to make a moving background and an active object
+- Adobe Warp Stabilizer
+  - Uses multiple frames to try and find a better point of stillness and recalibrate to that
+- 3D setups can begin to extrapolate where a camera "should/could" be and that allows them to move to where it needs to be
 * Stereo and Multi-View
 - Stereo being 2 cameras calibrated
 - Multi-view being $N$ cameras
@@ -225,16 +239,27 @@
 - Uses 3 Cameras (Multiview)
 - Captures facial expressions in real-time
 - Can help build animated models
+*** Can also be used for Green screens in conjunction with optical tracking
+- Can make use of a light wand for camera calibration
+- Marker based camera calibration to allow positional things to be projected where the green screen is
+- Helps to calibrate lights to follow actors in the scene, in relation to actual position and displayed position
 ** Light stage
 - Is a 3D capture system for getting a /detailed/ 3D capture model of someones face
 - Used a lot in AAA movies
 - Uses a dome, which has lights and cameras surrounding it
 - Allows you to capture a face under all possible lighting conditions as it cycles through conditions
 - Allows for post production changing of lighting, conditions colours etc all in 3D
+- Gives very high resolution output
 * Background Subtraction/Motion Segmentation
 - Background subtraction generally relies on a green-screen or a chroma key in order to make things easier
   - This generally means that even if a camera moves, that background subtraction is still possible
   - Being able to do this without a known static background is the "next" step for video production
+
+* Structure from Motion
+** TODO Hyperlapse Videos
+
+
+* Spatial Reasoning
 
 * VR/AR
 - Virtual/Augmented Reality is fundamentally dependant on Computer Vision

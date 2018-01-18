@@ -1,4 +1,4 @@
-% Created 2018-01-18 Thu 13:11
+% Created 2018-01-18 Thu 13:31
 \documentclass[a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -353,8 +353,36 @@
 \subsection{Optical Flow}
 \label{sec-4-2}
 
-\section{Stereo and Multi-View}
+
+\section{Video Stabilisation}
 \label{sec-5}
+\begin{itemize}
+\item Can use a one point track 
+\begin{itemize}
+\item Uses a single point of reference
+\end{itemize}
+\item Two point track
+\begin{itemize}
+\item Selecting two points and adding a line between the two and aiming to keep the line straight
+\end{itemize}
+\end{itemize}
+
+\subsection{If the video is moving a lot}
+\label{sec-5-1}
+\begin{itemize}
+\item Older technique called Deshaker, processing pass
+\begin{itemize}
+\item Selects items with are moving a lot and which is moving less
+\item Using this information it can try to make a moving background and an active object
+\end{itemize}
+\item Adobe Warp Stabilizer
+\begin{itemize}
+\item Uses multiple frames to try and find a better point of stillness and recalibrate to that
+\end{itemize}
+\item 3D setups can begin to extrapolate where a camera "should/could" be and that allows them to move to where it needs to be
+\end{itemize}
+\section{Stereo and Multi-View}
+\label{sec-6}
 \begin{itemize}
 \item Stereo being 2 cameras calibrated
 \item Multi-view being $N$ cameras
@@ -364,9 +392,9 @@
 \end{itemize}
 
 \section{3D Capture Setups}
-\label{sec-6}
+\label{sec-7}
 \subsection{Vicon make 3D capture}
-\label{sec-6-1}
+\label{sec-7-1}
 \begin{itemize}
 \item One such device is the 'cara' which is a lightweight headset
 \item Uses reflective dots on the users face (marker based vision)
@@ -374,17 +402,25 @@
 \item Captures facial expressions in real-time
 \item Can help build animated models
 \end{itemize}
+\subsubsection{Can also be used for Green screens in conjunction with optical tracking}
+\label{sec-7-1-1}
+\begin{itemize}
+\item Can make use of a light wand for camera calibration
+\item Marker based camera calibration to allow positional things to be projected where the green screen is
+\item Helps to calibrate lights to follow actors in the scene, in relation to actual position and displayed position
+\end{itemize}
 \subsection{Light stage}
-\label{sec-6-2}
+\label{sec-7-2}
 \begin{itemize}
 \item Is a 3D capture system for getting a \emph{detailed} 3D capture model of someones face
 \item Used a lot in AAA movies
 \item Uses a dome, which has lights and cameras surrounding it
 \item Allows you to capture a face under all possible lighting conditions as it cycles through conditions
 \item Allows for post production changing of lighting, conditions colours etc all in 3D
+\item Gives very high resolution output
 \end{itemize}
 \section{Background Subtraction/Motion Segmentation}
-\label{sec-7}
+\label{sec-8}
 \begin{itemize}
 \item Background subtraction generally relies on a green-screen or a chroma key in order to make things easier
 \begin{itemize}
@@ -393,13 +429,22 @@
 \end{itemize}
 \end{itemize}
 
+\section{Structure from Motion}
+\label{sec-9}
+\subsection{{\bfseries\sffamily TODO} Hyperlapse Videos}
+\label{sec-9-1}
+
+
+\section{Spatial Reasoning}
+\label{sec-10}
+
 \section{VR/AR}
-\label{sec-8}
+\label{sec-11}
 \begin{itemize}
 \item Virtual/Augmented Reality is fundamentally dependant on Computer Vision
 \end{itemize}
 \subsection{Motion tracking}
-\label{sec-8-1}
+\label{sec-11-1}
 \begin{itemize}
 \item For example we require motion tracking for where the user is
 \item Where the objects are
@@ -407,7 +452,7 @@
 \item Without these, or if done badly or out of sync
 \end{itemize}
 \subsubsection{Motion sickness}
-\label{sec-8-1-1}
+\label{sec-11-1-1}
 \begin{itemize}
 \item B. Allen et al. Visual 3D acuity predicts discomfort in 3D stereoscopic environments. Entertainment Computing.
 \item Reports that 78\% of women and 33\% of men felt ill from using the HTC Vive
