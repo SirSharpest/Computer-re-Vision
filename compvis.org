@@ -25,7 +25,6 @@
 #+latex_header: \hypersetup{colorlinks=true,linkcolor=black, citecolor=black}
 #+LATEX_HEADER_EXTRA:  \usepackage{framed}
 #+LATEX: \maketitle
-#+LATEX: \clearpage
 
 
 * Edges and Low Level Vision
@@ -218,6 +217,12 @@
 [[./app.png]]
 - Is not a problem just for optical flow, it is also a problem for brains
 
+*** Dense Optical flow
+- A lot of algorithms really depend on edges
+- Needle maps (Are the little arrows)
+- Assumptions are made about brightness
+- Then use a differential method to deduce movement
+
 * Video Stabilisation
 - Can use a one point track 
   - Uses a single point of reference
@@ -235,6 +240,9 @@
 - Stereo being 2 cameras calibrated
 - Multi-view being $N$ cameras
   - Generally used to build a 3D model of a space
+- Taking two images and adjusting to a common plane (the ground most often) you can work out the transformation of objects
+  - This is a kind of optical flow
+- Can have problems with Ambiguity and joining points between cameras
 
 * 3D Capture Setups 
 ** Vicon make 3D capture 
@@ -259,6 +267,22 @@
   - This generally means that even if a camera moves, that background subtraction is still possible
   - Being able to do this without a known static background is the "next" step for video production
 
+* 2D to 3D is Hard
+|--------------------+----------------------------------------------------------|
+| *Method*           | *Ingredients*                                            |
+| Shape from shading | 1 image, 1 viewpoint, 1 lightsource, lots of assumptions |
+| Photometric Stereo | 2+ images, 2+ lightsources                               |
+| Shape from Texture | 1+ images, lots of assumptions                           |
+| Shape from motion  | 2+ images, 2+ viewpoints                                 |
+| Stereo Vision      | 2+ images, 2+ viewpoints                                 |
+| Depth Cameras      | 2+ images, structured lightsource, 1 viewpoint           |
+|--------------------+----------------------------------------------------------|
+
+** Using Light
+- Using the way that light reflects
+- Can estimate 3D shape
+- Makes assumptions about smoothness
+
 * Structure from Motion
 - Often used with drones
 - Can be done with a single moving camera
@@ -278,6 +302,10 @@
    - Compared to naive methods, they use multiple frames to produce each output frame
 
 * Spatial Reasoning
+- 3D Scene Structure can be inferred by motion and occlusion together
+  - D. Greenhill et al (2007)
+  - Used in videos from multiple frames based on where movement happens and where objects disappear
+- Depth from deFocus can use Exif data to give some info on focus of picture taken
 
 * VR/AR
 - Virtual/Augmented Reality is fundamentally dependant on Computer Vision
@@ -286,7 +314,7 @@
 - Where the objects are
 - Where the user is looking (head tracking)
 - Without these, or if done badly or out of sync
-*** Motion sickness 
+** Motion sickness 
 - B. Allen et al. Visual 3D acuity predicts discomfort in 3D stereoscopic environments. Entertainment Computing.
 - Reports that 78% of women and 33% of men felt ill from using the HTC Vive
 - Can stem from a discontinuity between motion being made and one being shown

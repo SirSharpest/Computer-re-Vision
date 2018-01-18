@@ -1,4 +1,4 @@
-% Created 2018-01-18 Thu 17:23
+% Created 2018-01-18 Thu 22:02
 \documentclass[a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -49,7 +49,6 @@
 
 \maketitle
 \maketitle
-\clearpage
 
 
 \section{Edges and Low Level Vision}
@@ -363,6 +362,15 @@
 \item Is not a problem just for optical flow, it is also a problem for brains
 \end{itemize}
 
+\subsubsection{Dense Optical flow}
+\label{sec-4-2-2}
+\begin{itemize}
+\item A lot of algorithms really depend on edges
+\item Needle maps (Are the little arrows)
+\item Assumptions are made about brightness
+\item Then use a differential method to deduce movement
+\end{itemize}
+
 \section{Video Stabilisation}
 \label{sec-5}
 \begin{itemize}
@@ -398,6 +406,11 @@
 \begin{itemize}
 \item Generally used to build a 3D model of a space
 \end{itemize}
+\item Taking two images and adjusting to a common plane (the ground most often) you can work out the transformation of objects
+\begin{itemize}
+\item This is a kind of optical flow
+\end{itemize}
+\item Can have problems with Ambiguity and joining points between cameras
 \end{itemize}
 
 \section{3D Capture Setups}
@@ -438,8 +451,32 @@
 \end{itemize}
 \end{itemize}
 
-\section{Structure from Motion}
+\section{2D to 3D is Hard}
 \label{sec-9}
+\begin{center}
+\begin{tabular}{ll}
+\hline
+\textbf{Method} & \textbf{Ingredients}\\
+Shape from shading & 1 image, 1 viewpoint, 1 lightsource, lots of assumptions\\
+Photometric Stereo & 2+ images, 2+ lightsources\\
+Shape from Texture & 1+ images, lots of assumptions\\
+Shape from motion & 2+ images, 2+ viewpoints\\
+Stereo Vision & 2+ images, 2+ viewpoints\\
+Depth Cameras & 2+ images, structured lightsource, 1 viewpoint\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Using Light}
+\label{sec-9-1}
+\begin{itemize}
+\item Using the way that light reflects
+\item Can estimate 3D shape
+\item Makes assumptions about smoothness
+\end{itemize}
+
+\section{Structure from Motion}
+\label{sec-10}
 \begin{itemize}
 \item Often used with drones
 \item Can be done with a single moving camera
@@ -452,14 +489,14 @@
 
 
 \subsection{Hyperlapse Videos}
-\label{sec-9-1}
+\label{sec-10-1}
 \begin{itemize}
 \item Is a product of microsoft research
 \item Video stabilisation cannot be sped up because of wildy shaking
 \item Stabilising and then speeding up a video doesn't work either as the stable window is small
 \end{itemize}
 \subsubsection{How it works}
-\label{sec-9-1-1}
+\label{sec-10-1-1}
 \begin{enumerate}
 \item Reconstruction of 3D space using structure from motion
 \item Finding a 6D camera path through the world
@@ -470,23 +507,31 @@
 \end{enumerate}
 
 \section{Spatial Reasoning}
-\label{sec-10}
+\label{sec-11}
+\begin{itemize}
+\item 3D Scene Structure can be inferred by motion and occlusion together
+\begin{itemize}
+\item D. Greenhill et al (2007)
+\item Used in videos from multiple frames based on where movement happens and where objects disappear
+\end{itemize}
+\item Depth from deFocus can use Exif data to give some info on focus of picture taken
+\end{itemize}
 
 \section{VR/AR}
-\label{sec-11}
+\label{sec-12}
 \begin{itemize}
 \item Virtual/Augmented Reality is fundamentally dependant on Computer Vision
 \end{itemize}
 \subsection{Motion tracking}
-\label{sec-11-1}
+\label{sec-12-1}
 \begin{itemize}
 \item For example we require motion tracking for where the user is
 \item Where the objects are
 \item Where the user is looking (head tracking)
 \item Without these, or if done badly or out of sync
 \end{itemize}
-\subsubsection{Motion sickness}
-\label{sec-11-1-1}
+\subsection{Motion sickness}
+\label{sec-12-2}
 \begin{itemize}
 \item B. Allen et al. Visual 3D acuity predicts discomfort in 3D stereoscopic environments. Entertainment Computing.
 \item Reports that 78\% of women and 33\% of men felt ill from using the HTC Vive
